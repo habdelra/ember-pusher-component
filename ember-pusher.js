@@ -255,10 +255,12 @@ define("ember-pusher/controller",
       }.property('isDisconnected'),
 
       _didConnect: function() {
+        if (this.isDestroyed) { return; }
         this.set('isDisconnected', false);
       },
 
       _didDisconnect: function() {
+        if (this.isDestroyed) { return; }
         this.set('isDisconnected', true);
       }
 
